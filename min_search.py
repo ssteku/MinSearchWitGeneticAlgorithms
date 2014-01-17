@@ -85,7 +85,7 @@ toolbox.register("select", tools.selNSGA2)
 
 def main():
     random.seed(64)
-    NGEN = 50
+    NGEN = 500
     MU = 50
     LAMBDA = 100
     CXPB = 0.7
