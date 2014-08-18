@@ -1,0 +1,21 @@
+\contentsline {section}{\numberline {1.}Project description}{2}
+\contentsline {subsection}{\numberline {1.1.}Project goals}{2}
+\contentsline {subsection}{\numberline {1.2.}Used technologies}{2}
+\contentsline {subsection}{\numberline {1.3.}Examined function}{2}
+\contentsline {section}{\numberline {2.}Genetic algorithm}{3}
+\contentsline {subsection}{\numberline {2.1.}Description}{3}
+\contentsline {subsection}{\numberline {2.2.}Data representation}{4}
+\contentsline {subsection}{\numberline {2.3.}Niching method}{4}
+\contentsline {subsection}{\numberline {2.4.}Mutation method}{4}
+\contentsline {subsection}{\numberline {2.5.}Crossing method}{5}
+\contentsline {subsection}{\numberline {2.6.}Evaluation method}{5}
+\contentsline {subsection}{\numberline {2.7.}Result analysis}{5}
+\contentsline {section}{\numberline {3.}Performed tests}{5}
+\contentsline {subsection}{\numberline {3.1.}Description}{5}
+\contentsline {subsection}{\numberline {3.2.}Number of generations test}{6}
+\contentsline {subsection}{\numberline {3.3.}Number of individuals in population test}{7}
+\contentsline {subsection}{\numberline {3.4.}Number of subpopulations test}{8}
+\contentsline {subsection}{\numberline {3.5.}Crossing probability test}{9}
+\contentsline {subsection}{\numberline {3.6.}Mutation probability test}{10}
+\contentsline {subsection}{\numberline {3.7.}Ray distance used for niching test}{11}
+\contentsline {section}{\numberline {4.}Final remarks}{12}

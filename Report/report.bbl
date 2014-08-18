@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{deap}
+Distributed evolutionary algorithm in python.
+\newblock http://code.google.com/p/deap/, 2013.
+
+\bibitem{pyGal}
+A python svg charts creator.
+\newblock http://pygal.org/, 2013.
+
+\bibitem{niching1}
+Thomas Grüninger and David Wallace.
+\newblock Multimodal optimization using genetic algorithms.
+\newblock
+  http://cadlab.mit.edu/publications/96-senin-tr9602-ga/dontindex/96-senin.pdf.
+
+\bibitem{niching2}
+Xin Yao.
+\newblock Niching and speciation.
+\newblock
+  http://www.cs.bham.ac.uk/\~pkl/teaching/2009/ec/lecture\_notes/l06-niching.pdf.
+
+\end{thebibliography}
