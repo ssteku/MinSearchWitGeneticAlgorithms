@@ -90,14 +90,14 @@ class NichingAlgorithm:
     def generate_individual(self, toolbox, min, max):
         ind = creator.Individual()
 
-        for i in range(self.number_of_cords):
+        for _ in range(self.number_of_cords):
             attr = self.generate_attribute(min, max)
             # print "attr: %s" % attr
             ind.append(attr)
         return ind
     def generate_subpopulations(self, toolbox, subpopulation_size, number_of_subpopulations):
         subpopulations = []
-        for i in range(number_of_subpopulations):
+        for _ in range(number_of_subpopulations):
             indyvidual_func = partial(self.generate_individual, toolbox, self.function_object.xMin, self.function_object.xMax)
             subpopulations.append(toolbox.population(func = indyvidual_func, n=subpopulation_size))
 
@@ -122,15 +122,18 @@ class NichingAlgorithm:
             fitnesses.append(toolbox.evaluate(ind,radius_distance, representatives))
         for ind, fit in zip(subpopulation, fitnesses):
             ind.fitness.values = fit
+
     def get_offspring(self, toolbox, subpopulation):
         offspring = toolbox.select(subpopulation, len(subpopulation))
         return list(map(toolbox.clone, offspring))
+
     def perform_crossing(self, toolbox, offspring, crossing_probability):
         for child1, child2 in zip(offspring[::2], offspring[1::2]):
             if random.random() < crossing_probability:
                 toolbox.mate(child1, child2)
                 del child1.fitness.values
                 del child2.fitness.values
+
     def perform_mutation(self, toolbox, offspring, mutation_probability):
         for mutant in offspring:
             if random.random() < mutation_probability:
@@ -144,35 +147,14 @@ class NichingAlgorithm:
             offspring = self.get_offspring(toolbox, subpopulation)
             self.perform_crossing(toolbox, offspring, crossing_probability)
             self.perform_mutation(toolbox, offspring, mutation_probability)
-            # Evaluate the individuals with an invalid fitness
-
             invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
             current_representatives = representatives[:i] + representatives[i+1:]
-
             self.evaluate_subpopulation(toolbox, invalid_ind, radius_distance, current_representatives)
-
-            # print("  Evaluated %i individuals" % len(invalid_ind))
-
-            # The population is entirely replaced by the offspring
             subpopulation[:] = offspring
-
-            # Gather all the fitnesses in one list and print the stats
-            fits = [ind.fitness.values[0] for ind in subpopulation]
-
-            length = len(subpopulation)
-            mean = sum(fits) / length
-            sum2 = sum(x*x for x in fits)
-            std = abs(sum2 / length - mean**2)**0.5
-
-            # print("  Min %s" % min(fits))
-            # print("  Max %s" % max(fits))
-            # print("  Avg %s" % mean)
-            # print("  Std %s" % std)
-            # print("  Best: %s" % toolbox.get_best(subpopulation)[0])
             new_subpopulations[i] = toolbox.get_best(subpopulation)[0]
         return new_subpopulations
 
-    def findMinimas(self, population_size, number_of_generations, number_of_subpopulations, crossing_probability, mutation_probability, distance_factor):
+    def find_minimas(self, population_size, number_of_generations, number_of_subpopulations, crossing_probability, mutation_probability, distance_factor):
         random.seed(64)
 
         current_generation = 0

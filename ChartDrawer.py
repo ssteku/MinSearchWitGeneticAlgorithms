@@ -1,8 +1,10 @@
 import pygal                                                       # First import pygal
-
+from pygal.style import CleanStyle
 class ChartDrawer:
     def draw(self, name, seriesName, results, xLabels, xTitle, yTitle):
-        self.line_chart = pygal.Line()
+        self.line_chart = pygal.Line(
+        	fill=True, style=CleanStyle,
+        	x_label_rotation=45)
         self.line_chart.title = name
         self.line_chart.x_labels = xLabels
         self.line_chart.x_title = xTitle

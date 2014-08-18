@@ -34,7 +34,7 @@ class TestSuite:
         print "ray: %s" % self.RAY_DISTANCE
         avarageErrSum = 0
         for i in range(self.REPEAT_COUNT):
-            results= self.algorithm.findMinimas(self.POPULATION_SIZE, self.GEN_NUMBER, self.SUBPOPULATION_NUMBER, self.CXPB, self.MUTPB, self.RAY_DISTANCE)
+            results= self.algorithm.find_minimas(self.POPULATION_SIZE, self.GEN_NUMBER, self.SUBPOPULATION_NUMBER, self.CXPB, self.MUTPB, self.RAY_DISTANCE)
             tests = TestSuite()
             avarageErrSum += self.getAvarageError(self.functionObject, self.A, results)
         print "Avarage err: %s" % str(avarageErrSum/self.REPEAT_COUNT)
